@@ -21,5 +21,7 @@ int main(int argc, char *argv[])
 
     StorageSystem::removeMaterial("mt-3", 30, "sg-2");
 
+    StorageSystem::addMaterial("inv", 30, "st-inv");
+
     return 0;
 }

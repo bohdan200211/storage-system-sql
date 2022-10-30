@@ -84,7 +84,7 @@ bool StorageSystem::addMaterial(const QString &materialName, int amount, const Q
     query.exec(QStringLiteral("select name, contain "
                               "from storages where id=%0")
                    .arg(storageId));
-    if (query.next() && !query.isValid())
+    if (!query.next() && !query.isValid())
     {
         qDebug() << "storageId does not exist!";
         return false;
@@ -134,7 +134,7 @@ bool StorageSystem::removeMaterial(const QString &materialName, int amount,
     query.exec(QStringLiteral("select name, contain "
                               "from storages where id=%0")
                    .arg(storageId));
-    if (query.next() && !query.isValid())
+    if (!query.next() && !query.isValid())
     {
         qDebug() << "storageId does not exist!";
         return false;
@@ -181,7 +181,7 @@ int StorageSystem::getStorageIdByName(const QString &storageName)
                               "from storages where name='%0'")
                    .arg(storageName));
 
-    if (query.next() && !query.isValid())
+    if (!query.next() && !query.isValid())
     {
         qDebug() << "The storageName does not exist!";
         return false;
